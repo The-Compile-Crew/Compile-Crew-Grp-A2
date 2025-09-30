@@ -1,0 +1,79 @@
+Collecting Flask==2.3.3
+  Using cached flask-2.3.3-py3-none-any.whl (96 kB)
+Requirement already satisfied: Flask-SQLAlchemy==3.1.1 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (3.1.1)
+Collecting Flask-Migrate==3.1.0
+  Using cached Flask_Migrate-3.1.0-py3-none-any.whl (20 kB)
+Collecting Flask-Reuploaded==1.2.0
+  Using cached Flask_Reuploaded-1.2.0-py3-none-any.whl (14 kB)
+Collecting Flask-Cors==3.0.10
+  Using cached Flask_Cors-3.0.10-py2.py3-none-any.whl (14 kB)
+Collecting Flask-JWT-Extended==4.4.4
+  Using cached Flask_JWT_Extended-4.4.4-py2.py3-none-any.whl (22 kB)
+Requirement already satisfied: Flask-Admin==1.6.1 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (1.6.1)
+Requirement already satisfied: Werkzeug in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (3.1.3)
+Collecting click==8.1.3
+  Using cached click-8.1.3-py3-none-any.whl (96 kB)
+Collecting gunicorn==20.1.0
+  Using cached gunicorn-20.1.0-py3-none-any.whl (79 kB)
+Collecting python-dotenv==1.0.1
+  Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+Collecting rich==13.4.2
+  Downloading rich-13.4.2-py3-none-any.whl (239 kB)
+Collecting psycopg2-binary==2.9.9
+  Downloading psycopg2_binary-2.9.9-cp39-cp39-macosx_11_0_arm64.whl (2.6 MB)
+Collecting pytest==7.0.1
+  Downloading pytest-7.0.1-py3-none-any.whl (296 kB)
+Requirement already satisfied: importlib-metadata>=3.6.0 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from Flask==2.3.3) (8.7.0)
+Requirement already satisfied: blinker>=1.6.2 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from Flask==2.3.3) (1.9.0)
+Requirement already satisfied: itsdangerous>=2.1.2 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from Flask==2.3.3) (2.2.0)
+Requirement already satisfied: Jinja2>=3.1.2 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from Flask==2.3.3) (3.1.6)
+Requirement already satisfied: sqlalchemy>=2.0.16 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from Flask-SQLAlchemy==3.1.1) (2.0.43)
+Requirement already satisfied: alembic>=0.7 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from Flask-Migrate==3.1.0) (1.16.5)
+Collecting Six
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Requirement already satisfied: PyJWT<3.0,>=2.0 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from Flask-JWT-Extended==4.4.4) (2.10.1)
+Requirement already satisfied: wtforms in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from Flask-Admin==1.6.1) (3.2.1)
+Requirement already satisfied: setuptools>=3.0 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from gunicorn==20.1.0) (58.1.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from rich==13.4.2) (2.19.2)
+Collecting markdown-it-py>=2.2.0
+  Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Requirement already satisfied: packaging in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from pytest==7.0.1) (25.0)
+Collecting py>=1.8.2
+  Downloading py-1.11.0-py2.py3-none-any.whl (98 kB)
+Requirement already satisfied: pluggy<2.0,>=0.12 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from pytest==7.0.1) (1.6.0)
+Collecting attrs>=19.2.0
+  Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+Requirement already satisfied: tomli>=1.0.0 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from pytest==7.0.1) (2.2.1)
+Requirement already satisfied: iniconfig in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from pytest==7.0.1) (2.1.0)
+Requirement already satisfied: MarkupSafe>=2.1.1 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from Werkzeug) (3.0.3)
+Requirement already satisfied: typing-extensions>=4.12 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from alembic>=0.7->Flask-Migrate==3.1.0) (4.15.0)
+Requirement already satisfied: Mako in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from alembic>=0.7->Flask-Migrate==3.1.0) (1.3.10)
+Requirement already satisfied: zipp>=3.20 in /Users/chevelleneptunefrancis/.pyenv/versions/3.9.10/envs/breadvan-env/lib/python3.9/site-packages (from importlib-metadata>=3.6.0->Flask==2.3.3) (3.23.0)
+Collecting mdurl~=0.1
+  Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Installing collected packages: click, mdurl, Flask, Six, py, markdown-it-py, attrs, rich, python-dotenv, pytest, psycopg2-binary, gunicorn, Flask-Reuploaded, Flask-Migrate, Flask-JWT-Extended, Flask-Cors
+  Attempting uninstall: click
+    Found existing installation: click 8.1.8
+    Uninstalling click-8.1.8:
+      Successfully uninstalled click-8.1.8
+  Attempting uninstall: Flask
+    Found existing installation: flask 3.1.2
+    Uninstalling flask-3.1.2:
+      Successfully uninstalled flask-3.1.2
+  Attempting uninstall: python-dotenv
+    Found existing installation: python-dotenv 1.1.1
+    Uninstalling python-dotenv-1.1.1:
+      Successfully uninstalled python-dotenv-1.1.1
+  Attempting uninstall: pytest
+    Found existing installation: pytest 8.4.2
+    Uninstalling pytest-8.4.2:
+      Successfully uninstalled pytest-8.4.2
+  Attempting uninstall: Flask-Migrate
+    Found existing installation: Flask-Migrate 4.1.0
+    Uninstalling Flask-Migrate-4.1.0:
+      Successfully uninstalled Flask-Migrate-4.1.0
+  Attempting uninstall: Flask-JWT-Extended
+    Found existing installation: Flask-JWT-Extended 4.7.1
+    Uninstalling Flask-JWT-Extended-4.7.1:
+      Successfully uninstalled Flask-JWT-Extended-4.7.1
+Successfully installed Flask-2.3.3 Flask-Cors-3.0.10 Flask-JWT-Extended-4.4.4 Flask-Migrate-3.1.0 Flask-Reuploaded-1.2.0 Six-1.17.0 attrs-25.3.0 click-8.1.3 gunicorn-20.1.0 markdown-it-py-3.0.0 mdurl-0.1.2 psycopg2-binary-2.9.9 py-1.11.0 pytest-7.0.1 python-dotenv-1.0.1 rich-13.4.2
