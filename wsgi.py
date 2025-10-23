@@ -108,6 +108,14 @@ def update_driver_location_command(driver_id, location):
     driver = update_driver_location(driver_id, location)
     print(f'Driver {driver.name} location updated to: {location}')
 
+@driver_cli.command("requests", help="View requests for driver's drives")
+@click.argument("driver_id", type=int)
+def view_driver_requests_command(driver_id):
+    requests = get_requests_by_driver(driver_id)
+    print(f"Requests for driver {driver_id}:")
+    for req in requests:
+        print(f'Request {req.requestId}: Resident {req.resident.name} - Status: {req.status}")
+
 app.cli.add_command(driver_cli)
 
 # Resident commands
