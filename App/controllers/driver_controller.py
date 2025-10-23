@@ -35,3 +35,6 @@ def schedule_driver(Driver_id, street_id, scheduled_time):
 
 def get_drives_by_driver(driver_id):
   return Drive.query.filter_by(driverId = driver_id).all()
+
+def get_requests_by_driver(driver_id):
+    return Request.query.join(Drive).filter(Drive.driverId == driver_id).all()
