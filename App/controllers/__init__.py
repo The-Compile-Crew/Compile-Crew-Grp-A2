@@ -1,5 +1,6 @@
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from .user import *
+from .auth import *
 from .driver_controller import *
 from .resident_controller import *
 from .street_controller import *
