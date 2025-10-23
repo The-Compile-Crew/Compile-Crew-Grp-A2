@@ -32,8 +32,8 @@ class UserUnitTests(unittest.TestCase):
         self.assertDictEqual(user_json, {"id":None, "username":"bob"})
     
     def test_hashed_password(self):
-    password = "mypass"
-    hashed = generate_password_hash(password)  
+        password = "mypass"
+        hashed = generate_password_hash(password)  
         user = User("bob", password)
         assert user.password != password
 
