@@ -13,7 +13,7 @@ def get_all_residents():
 def get_resident(resident_id):
   return Resident.query.get(resident_id)
 
-def get_drives_by_street(street.id):
+def get_drives_by_street(street_id):
   return Drive.query.filter_by(streetId = street_id).all()
 
 def create_request(resident_id, drive_id):
