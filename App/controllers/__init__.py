@@ -1,3 +1,4 @@
+from .user import *
 from .driver_controller import *
 from .resident_controller import *
 from .street_controller import *
