@@ -1,4 +1,4 @@
-from .user import create_user
+from .user_controller import create_user
 from App.database import db
 
 

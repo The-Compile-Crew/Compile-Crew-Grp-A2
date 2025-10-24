@@ -7,7 +7,7 @@ from App.controllers.driver_controller import (
     get_driver,
     update_driver_status,
     update_driver_location,
-    schedule_driver,
+    schedule_drive,
     get_drives_by_driver,
     get_requests_by_driver
 )
@@ -50,7 +50,7 @@ class DriverControllerUnitTests(unittest.TestCase):
     def test_schedule_driver_and_get_drives(self):
         driver = create_driver("Frank")
         scheduled = datetime(2025, 10, 25, 9, 0)
-        drive = schedule_driver(driver.driverId, street_id=1, scheduled_time=scheduled)
+        drive = schedule_drive(driver.driverId, street_id=1, scheduled_time=scheduled)
         self.assertIsNotNone(drive.driveId)
 
         drives = get_drives_by_driver(driver.driverId)

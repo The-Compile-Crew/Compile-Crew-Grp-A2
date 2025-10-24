@@ -1,6 +1,6 @@
 import unittest
 from App.models import User
-from App.controllers.user import (
+from App.controllers.user_controller import (
     create_user,
     get_user_by_username,
     get_user,

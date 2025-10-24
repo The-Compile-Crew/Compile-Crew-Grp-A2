@@ -27,7 +27,13 @@ def update_driver_location(driver_id, location):
         db.session.commit()
     return driver
 
-def schedule_driver(driver_id, street_id, scheduled_time):
+def get_driver_location(driver_id):
+    driver = Driver.query.get(driver_id)
+    if driver:
+        return driver.location
+    return None
+
+def schedule_drive(driver_id, street_id, scheduled_time):
     drive = Drive(driver_id, street_id, scheduled_time)
     db.session.add(drive)
     db.session.commit()
