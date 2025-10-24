@@ -8,8 +8,11 @@ class Driver(db.Model):
     
     drives = db.relationship('Drive', backref='driver', lazy=True)
     
-    def __init__(self, name):
+    def __init__(self, name, status="available", location=None):
         self.name = name
+        self.status = status
+        self.location = location
+
     
     def toJSON(self):
         return {
