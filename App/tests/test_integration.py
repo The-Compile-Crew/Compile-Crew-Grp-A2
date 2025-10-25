@@ -4,11 +4,12 @@ from App.main import create_app
 from App.database import db
 from App.controllers import (
     create_user, login,
-    create_driver, update_driver_status, update_driver_location, get_driver,
-    create_street, create_resident, get_resident,
-    schedule_drive, get_drives_by_street, get_driver_location,
-    create_request, get_requests_by_driver, update_request_status
+    create_driver, update_driver_status, update_driver_location,
+    create_street, create_resident,
+    schedule_drive, get_drives_by_street,
+    create_request, get_requests_by_driver
 )
+from App.models import get_driver, get_resident
 
 class IntegrationTests(unittest.TestCase):
 
@@ -28,16 +29,16 @@ class IntegrationTests(unittest.TestCase):
 
     def test_schedule_and_notify(self):
         create_street("Main Street")
-        create_resident("Alice", 1)
-        create_driver("John")
+        create_resident("alice_user", "password123", "Alice", 1)
+        create_driver("john", "John", "pass", "Unknown")
         drive = schedule_drive(1, 1, datetime.now())
         inbox = get_drives_by_street(1)
         self.assertIn(drive, inbox)
 
     def test_request_flow(self):
         create_street("Oak Avenue")
-        create_resident("Bob", 1)
-        create_driver("Sarah")
+        create_resident("bob_user", "password123", "Bob", 1)
+        create_driver("sarah", "Sarah", "pass", "Unknown")
         drive = schedule_drive(1, 1, datetime.now())
         request = create_request(1, drive.driveId)
         requests = get_requests_by_driver(1)
@@ -49,23 +50,23 @@ class IntegrationTests(unittest.TestCase):
         self.assertIsNotNone(token)
 
     def test_status_update(self):
-        create_driver("Mike")
+        create_driver("mike", "Mike", "pass", "Unknown")
         schedule_drive(1, 1, datetime.now())
         update_driver_status(1, "active")
         driver = get_driver(1)
         self.assertEqual(driver.status, "active")
 
     def test_driver_location_flow(self):
-        create_driver("Nina")
+        create_driver("nina", "Nina", "pass", "Unknown")
         schedule_drive(1, 1, datetime.now())
         update_driver_location(1, "Corner of Main")
-        location = get_driver_location(1)
-        self.assertEqual(location, "Corner of Main")
+        driver = get_driver(1)
+        self.assertEqual(driver.location, "Corner of Main")
 
     def test_resident_inbox_flow(self):
         create_street("Elm Street")
-        create_resident("Carol", 1)
-        create_driver("Jake")
+        create_resident("carol_user", "password123", "Carol", 1)
+        create_driver("jake", "Jake", "pass", "Unknown")
         drive = schedule_drive(1, 1, datetime.now())
         inbox = get_drives_by_street(1)
         self.assertTrue(any(d.driveId == drive.driveId for d in inbox))
@@ -77,8 +78,8 @@ class IntegrationTests(unittest.TestCase):
 
     def test_request_visibility(self):
         create_street("Birch Road")
-        create_resident("Dana", 1)
-        create_driver("Leo")
+        create_resident("dana_user", "password123", "Dana", 1)
+        create_driver("leo", "Leo", "pass", "Unknown")
         drive = schedule_drive(1, 1, datetime.now())
         create_request(1, drive.driveId)
         inbox = get_drives_by_street(1)

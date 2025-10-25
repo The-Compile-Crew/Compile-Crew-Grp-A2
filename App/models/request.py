@@ -13,7 +13,7 @@ class Request(db.Model):
         self.status = status
         self.description = description
 
-    def toJSON(self):
+    def get_json(self):
         return {
             'requestId': self.requestId,
             'residentId': self.residentId,

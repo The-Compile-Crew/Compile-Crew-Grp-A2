@@ -20,4 +20,4 @@ class DriveModelUnitTests(unittest.TestCase):
             'streetId': 2,
             'scheduledTime': scheduled.isoformat()
         }
-        self.assertDictEqual(drive.toJSON(), expected)
+        self.assertDictEqual(drive.get_json(), expected)

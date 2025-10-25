@@ -114,7 +114,7 @@ def view_driver_requests_command(driver_id):
     requests = get_requests_by_driver(driver_id)
     print(f"Requests for driver {driver_id}:")
     for req in requests:
-        print(f'Request {req.requestId}: Resident {req.resident.name} - Status: {req.status}")
+        print(f"Request {req.requestId}: Resident {req.resident.name} - Status: {req.status}")
 
 app.cli.add_command(driver_cli)
 

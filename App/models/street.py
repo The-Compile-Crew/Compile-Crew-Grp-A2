@@ -10,7 +10,7 @@ class Street(db.Model):
     def __init__(self, name):
         self.name = name
     
-    def toJSON(self):
+    def get_json(self):
         return {
             'streetId': self.streetId,
             'name': self.name

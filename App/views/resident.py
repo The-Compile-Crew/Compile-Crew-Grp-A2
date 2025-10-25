@@ -1,20 +1,26 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required
+from App.controllers.resident_controller import create_resident, view_my_requests
 
 resident_views = Blueprint('resident_views', __name__, template_folder='../templates')
 
-@resident_views.route('/api/residents', methods=['GET'])
-@jwt_required()
-def get_all_residents():
-    return jsonify({"message": "Will return all residents soon"})
-
 @resident_views.route('/api/residents', methods=['POST'])
 @jwt_required()
-def create_resident():
+def create_resident_route():
     data = request.json
-    return jsonify({"message": "Will create resident soon", "data": data}), 201
+    name = data.get('name')
+    street_id = data.get('street_id')
 
-@resident_views.route('/api/residents/<int:resident_id>', methods=['GET'])
+    if not all([name, street_id]):
+        return jsonify({"error": "Missing name or street_id"}), 400
+    
+    resident = create_resident(name, street_id)
+    return jsonify(resident.get_json()), 201
+
+@resident_views.route('/api/residents/<resident_id>/requests', methods=['GET'])
 @jwt_required()
-def get_resident(resident_id):
-    return jsonify({"message": f"Will get resident {resident_id} soon"})
+def get_resident_requests_route(resident_id):
+    requests = view_my_requests(resident_id)
+    if requests is None:
+        return jsonify({"error": "Resident not found"}), 404
+    return jsonify([r.get_json() for r in requests]), 200

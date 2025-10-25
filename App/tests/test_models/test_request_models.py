@@ -19,4 +19,4 @@ class RequestModelUnitTests(unittest.TestCase):
             'status': 'pending',
             'description': "Pickup groceries"
         }
-        self.assertDictEqual(request.toJSON(), expected)
+        self.assertDictEqual(request.get_json(), expected)

@@ -3,7 +3,6 @@ from App.models import User
 from werkzeug.security import check_password_hash
 
 class UserModelUnitTests(unittest.TestCase):
-
     def test_create_user(self):
         user = User("alice", "securepass")
         self.assertEqual(user.username, "alice")
@@ -16,7 +15,8 @@ class UserModelUnitTests(unittest.TestCase):
 
     def test_get_json(self):
         user = User("alice", "securepass")
-        expected = {'id': None, 'username': 'alice'}
+        # User.get_json includes a 'type' polymorphic field in the model
+        expected = {'id': None, 'username': 'alice', 'type': 'user'}
         self.assertDictEqual(user.get_json(), expected)
 
     def test_password_hashing(self):

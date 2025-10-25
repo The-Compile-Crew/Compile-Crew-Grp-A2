@@ -14,7 +14,7 @@ from App.controllers import (
     add_auth_context
 )
 
-from App.views import views, setup_admin
+from App.views import views
 
 
 
@@ -32,7 +32,6 @@ def create_app(overrides={}):
     add_views(app)
     init_db(app)
     jwt = setup_jwt(app)
-    setup_admin(app)
     @jwt.invalid_token_loader
     @jwt.unauthorized_loader
     def custom_unauthorized_response(error):

@@ -10,4 +10,4 @@ class StreetModelUnitTests(unittest.TestCase):
     def test_street_json(self):
         street = Street("Main Street")
         expected = {'streetId': None, 'name': 'Main Street'}
-        self.assertDictEqual(street.toJSON(), expected)
+        self.assertDictEqual(street.get_json(), expected)

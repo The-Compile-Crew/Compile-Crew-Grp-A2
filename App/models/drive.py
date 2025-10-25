@@ -14,10 +14,14 @@ class Drive(db.Model):
         self.streetId = streetId
         self.scheduledTime = scheduledTime
     
-    def toJSON(self):
+    def get_json(self):
         return {
             'driveId': self.driveId,
             'driverId': self.driverId,
             'streetId': self.streetId,
             'scheduledTime': self.scheduledTime.isoformat()
         }
+
+    # Backwards-compatible alias expected by some tests
+    def toJSON(self):
+        return self.get_json()

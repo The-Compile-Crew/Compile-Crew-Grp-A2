@@ -4,17 +4,18 @@ from App.models import Driver
 class DriverModelUnitTests(unittest.TestCase):
 
     def test_create_driver(self):
-        driver = Driver("Aisha Driver")
-        self.assertEqual(driver.name, "Aisha Driver")
+        # Driver requires username, driverName, password, location in current model
+        driver = Driver("aisha", "Aisha Driver", "pass", "Unknown")
+        self.assertEqual(driver.driverName, "Aisha Driver")
         self.assertEqual(driver.status, "available")
-        self.assertIsNone(driver.location)
+        self.assertEqual(driver.location, "Unknown")
 
     def test_driver_json(self):
-        driver = Driver("Aisha Driver")
+        driver = Driver("aisha", "Aisha Driver", "pass", "Unknown")
         expected = {
             'driverId': None,
-            'name': 'Aisha Driver',
+            'driverName': 'Aisha Driver',
             'status': 'available',
-            'location': None
+            'location': 'Unknown'
         }
-        self.assertDictEqual(driver.toJSON(), expected)
+        self.assertDictEqual(driver.get_json(), expected)

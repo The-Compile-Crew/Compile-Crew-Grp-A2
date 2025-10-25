@@ -2,6 +2,7 @@ from flask_jwt_extended import create_access_token, jwt_required, JWTManager, ge
 
 from App.models import User
 from App.database import db
+from App.models import Driver, Resident
 
 def login(username, password):
   result = db.session.execute(db.select(User).filter_by(username=username))
@@ -11,7 +12,28 @@ def login(username, password):
     return create_access_token(identity=str(user.id))
   return None
 
+def authenticate_user(username, password):
+  driver = Driver.query.filter_by(username=username).first()
+  if driver and driver.check_password(password):
+      return driver
+  resident = Resident.query.filter_by(username=username).first()
+  if resident and resident.check_password(password):
+      return resident
+  return None
+  
+def jwt_authenticate_user(username, password):
+  user = authenticate_user(username, password)
+  if user:
+    role = None
 
+    if Driver.query.get(user.id):
+      role = 'driver'
+    elif Resident.query.get(user.id):
+      role = 'resident'
+    return create_access_token(identity=str(user.id), additional_claims={"role": role})
+  return None
+  
+   
 def setup_jwt(app):
   jwt = JWTManager(app)
 
